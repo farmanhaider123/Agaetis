@@ -3,11 +3,7 @@
 <html lang="en">
 <head>
 <style>
-@media screen and (max-device-width:440px), screen and (max-width:640px) {
-.100pc {
-Width: 100%;
-}
-}
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </style>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,11 +27,7 @@ Width: 100%;
    <div id="contact_form">
  </div>
   <button type="submit" class="btn btn-primary">Submit</button>
- <div class="place-container">
-                <div class="time-zone" id="time-zone"></div>
-                <div id="country" class="country">IN</div>
-            </div>
-        </div>
+ 
 
   <div id="weather">
 <?php
