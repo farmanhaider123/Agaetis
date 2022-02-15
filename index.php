@@ -51,9 +51,7 @@ Width: 100%;
             $tempInCelcius = intval($weatherArray['main']['temp'] - 273);
  
             $weather .= " The temperature is ".$tempInCelcius."&deg;C ";
-            $tempInCelcius_min = intval($weatherArray['main']['temp_min']-273 );
-            $tempInCelcius_max = intval($weatherArray['main']['temp_max']-273);
-          
+            
         } else {
              
             $error = "Could not find city - please try again.";
@@ -78,7 +76,16 @@ Width: 100%;
     
     </form>
 </html>
-
+<?php
+  function convert2cen($value,$unit){
+    if($unit=='C'){
+      return $value;
+    }else if($unit=='F'){
+      $cen = ($value - 32) / 1.8;
+        return round($cen,2);
+      }
+  }
+?>
 <?php
 $cache_file = 'data.json';
 if(file_exists($cache_file)){
@@ -167,7 +174,7 @@ background: radial-gradient(to bottom, #21487F, #26454D);
     <?php $loop=0; foreach($forecast as $f){ $loop++;?>
       <div class="single forecast-block bordered">
         <h3><?php echo $f->day;?></h3>
-        <p style="font-size:1em;" class="aqi-value"><?php echo $tempInCelcius_min ;?> </p>
+        <p style="font-size:1em;" class="aqi-value"><?php echo convert2cen($f->low,$f->low_unit);?> °C - <?php echo convert2cen($f->high,$f->high_unit);?> °C </p>
         <hr style="border-bottom:1px solid #fff;">
         <img src="<?php echo $f->image;?>">
         <p><?php echo $f->phrase;?></p>
@@ -193,5 +200,3 @@ body{
 
 
 </style>
-
-</div>
