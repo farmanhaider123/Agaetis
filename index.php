@@ -94,13 +94,7 @@ $current = $data->results->current[0];
 $forecast = $data->results->seven_day_forecast;
 ?>
 <style>
-  body{
-  
-background: #21487F;
-background: -webkit-radial-gradient(top, #21487F, #26454D);
-background: -moz-radial-gradient(top, #21487F, #26454D);
-background: radial-gradient(to bottom, #21487F, #26454D);
-  }
+ 
   .wrapper .single{
     color:#fff;
     width:100%;
